@@ -56,14 +56,24 @@ function Dashboard() {
       }}
     >
 
-      <Typography variant="h3" style={{color:"white"}}>
-        🌱 Smart Plant Monitoring Dashboard
-      </Typography>
+      <Typography 
+  variant="h3" 
+  style={{
+    color: "white",
+    fontFamily: "'Segoe UI', Roboto, Helvetica, Arial, sans-serif", // Clean modern fonts
+    fontWeight: 400,        // Makes it look elegant and thin
+    letterSpacing: "2px",   // Adds a "premium" dashboard feel
+    textAlign: "center",    // Centers it on the page
+    textShadow: "2px 2px 4px rgba(0,0,0,0.5)" // Makes it pop against the background image
+  }}
+>
+  🌱 Smart Plant Monitoring Dashboard
+</Typography>
 
       <Grid container spacing={3} style={{marginTop:"20px"}}>
 
         <Grid item xs={12} md={4}>
-          <Card style={{background:"rgba(255,255,255,0.8)"}}>
+          <Card style={{background:"rgba(255,255,255,0.5)"}}>
             <CardContent>
               <Typography variant="h6">Moisture Level</Typography>
               <Typography variant="h3">
@@ -74,7 +84,7 @@ function Dashboard() {
         </Grid>
 
         <Grid item xs={12} md={4}>
-          <Card style={{background:"rgba(255,255,255,0.8)"}}>
+          <Card style={{background:"rgba(255,255,255,0.5)"}}>
             <CardContent>
               <Typography variant="h6">Pump Status</Typography>
               <Typography variant="h3">
@@ -85,7 +95,7 @@ function Dashboard() {
         </Grid>
 
         <Grid item xs={12} md={4}>
-          <Card style={{background:"rgba(255,255,255,0.8)"}}>
+          <Card style={{background:"rgba(255,255,255,0.5)"}}>
             <CardContent>
               <Typography variant="h6">System Status</Typography>
               <Typography variant="h5">Running</Typography>
@@ -95,23 +105,22 @@ function Dashboard() {
 
       </Grid>
 
-      <Card style={{marginTop:"40px", background:"rgba(255,255,255,0.9)"}}>
+      <Card style={{marginTop:"40px", background:"rgba(70, 97, 70, 0.65)", color:"white"}}>
         <CardContent>
 
-          <Typography variant="h6">
-            Soil Moisture History
-          </Typography>
+          <Typography variant="h5" style={{ color: "#dce7dc", textAlign: "center", marginBottom: "20px" }}> {/* Light Green text */}
+      Soil Moisture History
+    </Typography>
 
-          <LineChart width={800} height={300} data={data}>
-            <CartesianGrid strokeDasharray="3 3"/>
-            <XAxis dataKey="time"/>
-            <YAxis/>
-            <Tooltip/>
-            <Line type="monotone" dataKey="moisture" stroke="#2e7d32"/>
-          </LineChart>
-
-        </CardContent>
-      </Card>
+       <LineChart width={800} height={300} data={data}>
+      <CartesianGrid strokeDasharray="3 3" stroke="#555" />
+      <XAxis dataKey="time" stroke="#ccc" /> 
+      <YAxis stroke="#ccc" />
+      <Tooltip contentStyle={{ backgroundColor: '#333', border: 'none' }} />
+      <Line type="monotone" dataKey="moisture" stroke="#81c784" strokeWidth={3} />
+    </LineChart>
+  </CardContent>
+</Card>
 
     </div>
 
